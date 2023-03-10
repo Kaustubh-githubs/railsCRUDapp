@@ -10,5 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_10_093542) do
+  create_table "friends", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "email", null: false
+    t.string "phone", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_profiles", force: :cascade do |t|
+    t.string "first_name", limit: 50, null: false
+    t.string "last_name", limit: 50, null: false
+    t.string "email", limit: 100, null: false
+    t.string "phone_no"
+    t.string "title", null: false
+    t.string "password", null: false
+    t.string "profile_pic_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_user_profiles_on_email"
+  end
+
 end
